@@ -1,0 +1,64 @@
+{
+  "name": "android-version-code",
+  "version": "0.0.1",
+  "description": "Convert a semver string (major.minor.patch) to an Android versionCode integer for Google Play — zero-dependency CLI and API for Capacitor, React Native, Expo, and Gradle builds",
+  "type": "module",
+  "license": "MIT",
+  "author": "binochoi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binochoi/android-version-code.git"
+  },
+  "homepage": "https://github.com/binochoi/android-version-code#readme",
+  "bugs": {
+    "url": "https://github.com/binochoi/android-version-code/issues"
+  },
+  "keywords": [
+    "android",
+    "versioncode",
+    "version-code",
+    "semver",
+    "semver-to-versioncode",
+    "versionname",
+    "google-play",
+    "play-store",
+    "capacitor",
+    "react-native",
+    "expo",
+    "cordova",
+    "gradle",
+    "fastlane",
+    "build-number",
+    "release",
+    "ci",
+    "cli",
+    "zero-dependency"
+  ],
+  "bin": {
+    "android-version-code": "./dist/cli.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "obuild --stub",
+    "build:dist": "obuild",
+    "release": "pnpm build:dist && pnpm publish --ignore-scripts",
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "oxlint ./src && tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "obuild": "^0.4.38",
+    "oxlint": "^1.67.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
